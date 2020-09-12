@@ -63,7 +63,7 @@ by_int[which(by_int$m == max(by_int$m)),]
 sum(is.na(data))
 
 ```
-2) Filling in all of the missing values in the dataset with the mean for that 5-minute interval.
+2) Filling in all of the missing values in the dataset with the mean for that 5-minute interval: the mean (across days) value for each time interval was selected to replace the NA values. 
 3) Input into a new equivalent dataset dataI.
 ```{r interpolate data}
 dataI <- data %>% group_by(interval) %>%
@@ -71,7 +71,7 @@ dataI <- data %>% group_by(interval) %>%
 ```
 4) histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
-```{r imputed stepsperday}
+```{r imputed_stepsperday}
 dI <- dataI %>% group_by(date) %>% summarise(steps_by_day = sum(steps))
 hist(dI$steps_by_day, main = "histogram of total steps by day imputed",
      xlab = "steps")
@@ -96,7 +96,7 @@ dataI$weekdays <- as.factor(ifelse(weekdays(dataI$date) == "Saturday" |
                          "weekend","weekday"))
 ```                        
 2) Make a panel plot containing a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
-```{r panel plot}
+```{r panel_plot}
 dataIs <- dataI %>% group_by(interval,weekdays) %>% 
       summarise(steps = mean(steps))
 p <- ggplot(dataIs, aes(x = interval, y = steps)) + 

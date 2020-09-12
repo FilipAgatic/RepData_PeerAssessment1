@@ -425,7 +425,7 @@ plot(by_int$interval,by_int$m, type = &quot;l&quot;,
 <pre class="r"><code>sum(is.na(data))</code></pre>
 <pre><code>## [1] 2304</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>Filling in all of the missing values in the dataset with the mean for that 5-minute interval.</li>
+<li>Filling in all of the missing values in the dataset with the mean for that 5-minute interval: the mean (across days) value for each time interval was selected to replace the NA values.</li>
 <li>Input into a new equivalent dataset dataI.</li>
 </ol>
 <pre class="r"><code>dataI &lt;- data %&gt;% group_by(interval) %&gt;%

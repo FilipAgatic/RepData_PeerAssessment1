@@ -90,7 +90,7 @@ sum(is.na(data))
 ```
 ## [1] 2304
 ```
-2) Filling in all of the missing values in the dataset with the mean for that 5-minute interval.
+2) Filling in all of the missing values in the dataset with the mean for that 5-minute interval: the mean (across days) value for each time interval was selected to replace the NA values. 
 3) Input into a new equivalent dataset dataI.
 
 ```r
@@ -106,7 +106,7 @@ hist(dI$steps_by_day, main = "histogram of total steps by day imputed",
      xlab = "steps")
 ```
 
-![](PA1_template_files/figure-html/imputed stepsperday-1.png)<!-- -->
+![](PA1_template_files/figure-html/imputed_stepsperday-1.png)<!-- -->
 
 
 ```r
@@ -148,6 +148,6 @@ p <- ggplot(dataIs, aes(x = interval, y = steps)) +
 p
 ```
 
-![](PA1_template_files/figure-html/panel plot-1.png)<!-- -->
+![](PA1_template_files/figure-html/panel_plot-1.png)<!-- -->
 
 
